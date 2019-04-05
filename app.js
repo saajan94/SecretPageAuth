@@ -9,6 +9,7 @@ var passportLocalMongoose = require("passport-local-mongoose");
 mongoose.connect("mongodb://localhost/auth_demo", {useNewUrlParser: true});
 
 var app = express();
+var PORT = process.env.PORT || 3002;
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -80,5 +81,5 @@ function isLoggedIn(req, res, next){
 }
 
 app.listen(3002, function() {
-    console.log("App is listening on port 3002!");
+    console.log("App is listening on port " + PORT + "!");
 });
