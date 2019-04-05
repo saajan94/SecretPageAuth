@@ -6,7 +6,8 @@ var User = require("./models/user");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 
-mongoose.connect("mongodb://localhost/auth_demo", {useNewUrlParser: true});
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/auth_demo"
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 var app = express();
 var PORT = process.env.PORT || 3002;
